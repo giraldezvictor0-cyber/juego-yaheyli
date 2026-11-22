@@ -104,8 +104,12 @@ export class AudioManager {
    * Cargar todos los archivos de audio de la playlist
    */
   async loadPlaylist() {
-    // Usar ruta relativa para que funcione en GitHub Pages (subpath /juego-yaheyli/)
-    const basePath = 'public/assets/audio/';
+    // Detectar base path para GitHub Pages (subpath /juego-yaheyli/) o local
+    const basePath = (() => {
+      const path = window.location.pathname;
+      const match = path.match(/^(\/juego-yaheyli\/)/);
+      return match ? match[1] + 'public/assets/audio/' : 'public/assets/audio/';
+    })();
 
     for (const track of this.playlistConfig) {
       try {
