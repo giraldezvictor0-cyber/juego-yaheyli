@@ -374,6 +374,13 @@ export class GameEngine {
 
     this.canvas.style.width = `${newWidth}px`;
     this.canvas.style.height = `${newHeight}px`;
+
+    // Reconfigurar canvas para pixel art crisp (se pierde al cambiar width/height)
+    this.ctx.imageSmoothingEnabled = false;
+    this.ctx.webkitImageSmoothingEnabled = false;
+    this.ctx.mozImageSmoothingEnabled = false;
+    this.ctx.msImageSmoothingEnabled = false;
+
     this.canvas.width = this.width;
     this.canvas.height = this.height;
   }
