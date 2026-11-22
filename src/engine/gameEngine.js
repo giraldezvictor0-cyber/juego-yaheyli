@@ -266,6 +266,12 @@ export class GameEngine {
       this.highContrastChecked = true;
     }
 
+    // Asegurar pixel art crisp en cada frame (algunos navegadores lo resetean)
+    this.ctx.imageSmoothingEnabled = false;
+    this.ctx.webkitImageSmoothingEnabled = false;
+    this.ctx.mozImageSmoothingEnabled = false;
+    this.ctx.msImageSmoothingEnabled = false;
+
     // Calcular shake offset (respeta reduced motion)
     let shakeX = 0, shakeY = 0, shakeRoll = 0;
     if (this.trauma > 0 && !this.reducedMotion) {
