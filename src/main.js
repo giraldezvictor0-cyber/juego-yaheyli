@@ -135,4 +135,4 @@ document.addEventListener('touchend', (e) => {
   lastTouchEnd = now;
 }, { passive: false });
 
-export { gameEngine, audioManager };
+export { gameEngine, audioManager, initGame };
