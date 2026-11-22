@@ -105,6 +105,9 @@ if (document.readyState === 'loading') {
   initGame();
 }
 
+// Also call directly to ensure it runs in all module loading scenarios
+initGame();
+
 // Manejar visibilidad de la pestana
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
